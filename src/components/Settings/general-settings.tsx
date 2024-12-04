@@ -105,65 +105,65 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
         <List>
         <ListItem
         >
-          <Button>
+          <Button sx={{ textAlign: 'left', width: '100%' }}>
             <ListItemIcon>
               <PersonIcon />
             </ListItemIcon>
-            <ListItemText primary="Users" />
+            <ListItemText primary="Users" sx={{color: "black"}} />
           </Button>
         </ListItem>
         <ListItem
         >
-          <Button>
+          <Button sx={{ textAlign: 'left', width: '100%' }}>
             <ListItemIcon>
               <SettingsIcon />
             </ListItemIcon>
-            <ListItemText primary="General" />
+            <ListItemText primary="General" sx={{color: "black"}} />
           </Button>
         </ListItem>
         <ListItem
         >
-          <Button>
+          <Button sx={{ textAlign: 'left', width: '100%' }}>
             <ListItemIcon>
               <PaymentIcon />
             </ListItemIcon>
-            <ListItemText primary="Payments" />
+            <ListItemText primary="Payments" sx={{color: "black"}} />
           </Button>
         </ListItem>
         <ListItem
         >
-          <Button>
+          <Button sx={{ textAlign: 'left', width: '100%' }}>
             <ListItemIcon>
               <ShoppingCartIcon />
             </ListItemIcon>
-            <ListItemText primary="Checkout" />
+            <ListItemText primary="Checkout" sx={{color: "black"}} />
           </Button>
         </ListItem>
         <ListItem
         >
-          <Button>
+          <Button sx={{ textAlign: 'left', width: '100%' }}>
             <ListItemIcon>
               <LocationOnIcon />
             </ListItemIcon>
-            <ListItemText primary="Locations" />
+            <ListItemText primary="Locations" sx={{color: "black"}} />
           </Button>
         </ListItem>
         <ListItem
         >
-          <Button>
+          <Button sx={{ textAlign: 'left', width: '100%' }}>
             <ListItemIcon>
               <NotificationsIcon />
             </ListItemIcon>
-            <ListItemText primary="Notifications" />
+            <ListItemText primary="Notifications" sx={{color: "black"}} />
           </Button>
         </ListItem>
         <ListItem
         >
-          <Button>
+          <Button sx={{ textAlign: 'left', width: '100%' }}>
             <ListItemIcon>
               <PrivacyTipIcon />
             </ListItemIcon>
-            <ListItemText primary="Customer Privacy" />
+            <ListItemText primary="Customer Privacy" sx={{color: "black"}} />
           </Button>
         </ListItem>
       </List>
