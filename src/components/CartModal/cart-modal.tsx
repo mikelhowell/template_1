@@ -81,7 +81,7 @@ const CartModal = ({
       <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
         <Typography variant="h6">Total:</Typography>
         <Typography variant="h6">
-          ${cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}
+          ${cart.reduce((total: number, item: { price: number; quantity: number }) => total + item.price * item.quantity, 0).toFixed(2)}
         </Typography>
       </Box>
 
