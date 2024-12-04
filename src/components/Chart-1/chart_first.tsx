@@ -23,14 +23,15 @@ interface ChartData {
 
 // Props for the CustomChart component
 interface CustomChartProps {
-  header: string; // Header title
-  totalAmount: string; // Total amount displayed
-  increasePercentage: number; // Percentage increase
-  data: ChartData[]; // Data array for the chart
-  dataKeyCurrent: string; // Key for the current data
-  dataKeyPrevious: string; // Key for the previous data
-  chartType: 'line' | 'area' | 'bar'; // Type of chart to render
+  header: string;
+  totalAmount: string;
+  increasePercentage: number;
+  data: { name: string; current: number; previous: number }[];
+  dataKeyCurrent: string;
+  dataKeyPrevious: string;
+  chartType: 'line' | 'bar' | 'area'; // Example for supported chart types
 }
+
 
 // Component
 const CustomChart: React.FC<CustomChartProps> = ({

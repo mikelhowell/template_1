@@ -110,6 +110,7 @@ const STORIES = [
   },
 ];
 
+
 export function HomeView() {
 
   const [cart, setCart] = useState<any[]>([]); // State to hold the items in the cart
@@ -370,18 +371,15 @@ export function HomeView() {
             header="Total Sales"
             totalAmount="$14,358,452.78"
             increasePercentage={50}
-            data={data}
+            data={[
+              { name: "Week 1", current: 5000, previous: 4500 },
+              { name: "Week 2", current: 7000, previous: 6500 },
+            ]}
             dataKeyCurrent="current"
             dataKeyPrevious="previous"
-            periodLabels={['Nov 2023', 'Dec 2023', 'Jan 2024', 'Feb 2024']}
             chartType="line" // Change to 'area' or 'bar' for different shapes
           />
            <CohortChart
-            data={sampleData}
-            header="Sample Cohort Analysis"
-            xAxisLabel="Months"
-            yAxisLabel="Cohort Groups"
-            colors={{ min: '#fff3e0', max: '#ff9800' }}
           />
         </Container>
       </Box>

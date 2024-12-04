@@ -104,66 +104,67 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
         </Typography>
         <List>
         <ListItem
-          button
         >
-          <ListItemIcon>
-            <PersonIcon />
-          </ListItemIcon>
-          <ListItemText primary="Users" />
+          <Button>
+            <ListItemIcon>
+              <PersonIcon />
+            </ListItemIcon>
+            <ListItemText primary="Users" />
+          </Button>
         </ListItem>
         <ListItem
-          button
-          component="li"
         >
-          <ListItemIcon>
-            <SettingsIcon />
-          </ListItemIcon>
-          <ListItemText primary="General" />
+          <Button>
+            <ListItemIcon>
+              <SettingsIcon />
+            </ListItemIcon>
+            <ListItemText primary="General" />
+          </Button>
         </ListItem>
         <ListItem
-          button
-          component="li"
         >
-          <ListItemIcon>
-            <PaymentIcon />
-          </ListItemIcon>
-          <ListItemText primary="Payments" />
+          <Button>
+            <ListItemIcon>
+              <PaymentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Payments" />
+          </Button>
         </ListItem>
         <ListItem
-          button
-          component="li"
         >
-          <ListItemIcon>
-            <ShoppingCartIcon />
-          </ListItemIcon>
-          <ListItemText primary="Checkout" />
+          <Button>
+            <ListItemIcon>
+              <ShoppingCartIcon />
+            </ListItemIcon>
+            <ListItemText primary="Checkout" />
+          </Button>
         </ListItem>
         <ListItem
-          button
-          component="li"
         >
-          <ListItemIcon>
-            <LocationOnIcon />
-          </ListItemIcon>
-          <ListItemText primary="Locations" />
+          <Button>
+            <ListItemIcon>
+              <LocationOnIcon />
+            </ListItemIcon>
+            <ListItemText primary="Locations" />
+          </Button>
         </ListItem>
         <ListItem
-          button
-          component="li"
         >
-          <ListItemIcon>
-            <NotificationsIcon />
-          </ListItemIcon>
-          <ListItemText primary="Notifications" />
+          <Button>
+            <ListItemIcon>
+              <NotificationsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Notifications" />
+          </Button>
         </ListItem>
         <ListItem
-          button
-          component="li"
         >
-          <ListItemIcon>
-            <PrivacyTipIcon />
-          </ListItemIcon>
-          <ListItemText primary="Customer Privacy" />
+          <Button>
+            <ListItemIcon>
+              <PrivacyTipIcon />
+            </ListItemIcon>
+            <ListItemText primary="Customer Privacy" />
+          </Button>
         </ListItem>
       </List>
       </Box>
