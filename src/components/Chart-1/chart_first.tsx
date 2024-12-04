@@ -132,7 +132,7 @@ const CustomChart: React.FC<CustomChartProps> = ({
 
       {/* Chart Section */}
       <ResponsiveContainer width="100%" height={400}>
-        {renderChart()}
+        {renderChart() as React.ReactElement}
       </ResponsiveContainer>
     </Box>
   );
