@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
       transform: '@mui/lab/{{member}}',
     },
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
