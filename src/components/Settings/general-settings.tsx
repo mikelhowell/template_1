@@ -104,7 +104,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
         </Typography>
         <List>
         <ListItem
-          button="true"
+          button
           onClick={() => handleSelect("Users")}
           selected={selectedItem === "Users"}
         >
@@ -114,7 +114,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           <ListItemText primary="Users" />
         </ListItem>
         <ListItem
-          button="true"
+          button
           onClick={() => handleSelect("General")}
           selected={selectedItem === "General"}
         >
@@ -124,7 +124,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           <ListItemText primary="General" />
         </ListItem>
         <ListItem
-          button="true"
+          button
           onClick={() => handleSelect("Payments")}
           selected={selectedItem === "Payments"}
         >
@@ -134,7 +134,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           <ListItemText primary="Payments" />
         </ListItem>
         <ListItem
-          button="true"
+          button
           onClick={() => handleSelect("Checkout")}
           selected={selectedItem === "Checkout"}
         >
@@ -144,7 +144,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           <ListItemText primary="Checkout" />
         </ListItem>
         <ListItem
-          button="true"
+          button
           onClick={() => handleSelect("Locations")}
           selected={selectedItem === "Locations"}
         >
@@ -154,7 +154,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           <ListItemText primary="Locations" />
         </ListItem>
         <ListItem
-          button="true"
+          button
           onClick={() => handleSelect("Notifications")}
           selected={selectedItem === "Notifications"}
         >
@@ -164,7 +164,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           <ListItemText primary="Notifications" />
         </ListItem>
         <ListItem
-          button="true"
+          button
           onClick={() => handleSelect("Customer Privacy")}
           selected={selectedItem === "Customer Privacy"}
         >
