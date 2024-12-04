@@ -65,7 +65,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
   const [autoArchive, setAutoArchive] = React.useState<boolean>(
     initialValues.autoArchive
   );
-  const [selectedItem, setSelectedItem] = React.useState<string>("General");
+  const [selectedItem, setSelectedItem] = React.useState<string | null>(null);
 
   const handleSelect = (item: string) => {
     setSelectedItem(item);
@@ -104,9 +104,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
         </Typography>
         <List>
         <ListItem
-          button
-          onClick={() => handleSelect("Users")}
-          selected={selectedItem === "Users"}
+          button="true"
         >
           <ListItemIcon>
             <PersonIcon />
@@ -114,9 +112,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           <ListItemText primary="Users" />
         </ListItem>
         <ListItem
-          button
-          onClick={() => handleSelect("General")}
-          selected={selectedItem === "General"}
+          button="true"
         >
           <ListItemIcon>
             <SettingsIcon />
@@ -124,9 +120,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           <ListItemText primary="General" />
         </ListItem>
         <ListItem
-          button
-          onClick={() => handleSelect("Payments")}
-          selected={selectedItem === "Payments"}
+          button="true"
         >
           <ListItemIcon>
             <PaymentIcon />
@@ -134,9 +128,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           <ListItemText primary="Payments" />
         </ListItem>
         <ListItem
-          button
-          onClick={() => handleSelect("Checkout")}
-          selected={selectedItem === "Checkout"}
+          button="true"
         >
           <ListItemIcon>
             <ShoppingCartIcon />
@@ -144,9 +136,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           <ListItemText primary="Checkout" />
         </ListItem>
         <ListItem
-          button
-          onClick={() => handleSelect("Locations")}
-          selected={selectedItem === "Locations"}
+          button="true"
         >
           <ListItemIcon>
             <LocationOnIcon />
@@ -154,9 +144,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           <ListItemText primary="Locations" />
         </ListItem>
         <ListItem
-          button
-          onClick={() => handleSelect("Notifications")}
-          selected={selectedItem === "Notifications"}
+          button="true"
         >
           <ListItemIcon>
             <NotificationsIcon />
@@ -164,9 +152,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           <ListItemText primary="Notifications" />
         </ListItem>
         <ListItem
-          button
-          onClick={() => handleSelect("Customer Privacy")}
-          selected={selectedItem === "Customer Privacy"}
+          button="true"
         >
           <ListItemIcon>
             <PrivacyTipIcon />
