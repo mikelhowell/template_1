@@ -113,6 +113,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
         </ListItem>
         <ListItem
           button
+          component="li"
         >
           <ListItemIcon>
             <SettingsIcon />
@@ -121,6 +122,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
         </ListItem>
         <ListItem
           button
+          component="li"
         >
           <ListItemIcon>
             <PaymentIcon />
@@ -129,6 +131,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
         </ListItem>
         <ListItem
           button
+          component="li"
         >
           <ListItemIcon>
             <ShoppingCartIcon />
@@ -137,6 +140,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
         </ListItem>
         <ListItem
           button
+          component="li"
         >
           <ListItemIcon>
             <LocationOnIcon />
@@ -145,6 +149,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
         </ListItem>
         <ListItem
           button
+          component="li"
         >
           <ListItemIcon>
             <NotificationsIcon />
@@ -153,6 +158,7 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
         </ListItem>
         <ListItem
           button
+          component="li"
         >
           <ListItemIcon>
             <PrivacyTipIcon />
