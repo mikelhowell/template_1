@@ -197,3 +197,12 @@
 .readNextCardArrow:hover {
   color: #fff;
 }
+
+@media screen and (max-width: 768px) {
+  .readNextCards {
+    flex-flow: column;
+  }
+  .readNextCard {
+    width: 100% !important;
+  }
+}
