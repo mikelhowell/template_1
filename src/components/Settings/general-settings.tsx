@@ -1,26 +1,31 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
-    Box,
-    Typography,
-    TextField,
-    Select,
-    MenuItem,
-    FormControl,
-    InputLabel,
-    Radio,
-    RadioGroup,
-    FormControlLabel,
-    Checkbox,
-    Divider,
-    Button,
-    Link,
-    List,
-    ListItem,
-    ListItemIcon,
-    ListItemText,
-  } from "@mui/material";
+  Box,
+  Typography,
+  TextField,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  Checkbox,
+  Divider,
+  Button,
+  Link,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Drawer,
+  IconButton,
+  useMediaQuery,
+  Theme,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
 import SettingsIcon from "@mui/icons-material/Settings";
 import PaymentIcon from "@mui/icons-material/Payment";
@@ -50,38 +55,36 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
   storeDetails,
   initialValues,
 }) => {
-  const [unitSystem, setUnitSystem] = React.useState<string>(
-    initialValues.unitSystem
-  );
-  const [defaultWeight, setDefaultWeight] = React.useState<string>(
+  const [unitSystem, setUnitSystem] = useState<string>(initialValues.unitSystem);
+  const [defaultWeight, setDefaultWeight] = useState<string>(
     initialValues.defaultWeight
   );
-  const [timeZone, setTimeZone] = React.useState<string>(initialValues.timeZone);
-  const [prefix, setPrefix] = React.useState<string>(initialValues.prefix);
-  const [suffix, setSuffix] = React.useState<string>(initialValues.suffix);
-  const [orderProcessing, setOrderProcessing] = React.useState<string>(
+  const [timeZone, setTimeZone] = useState<string>(initialValues.timeZone);
+  const [prefix, setPrefix] = useState<string>(initialValues.prefix);
+  const [suffix, setSuffix] = useState<string>(initialValues.suffix);
+  const [orderProcessing, setOrderProcessing] = useState<string>(
     initialValues.orderProcessing
   );
-  const [autoArchive, setAutoArchive] = React.useState<boolean>(
+  const [autoArchive, setAutoArchive] = useState<boolean>(
     initialValues.autoArchive
   );
-  const [selectedItem, setSelectedItem] = React.useState<string | null>(null);
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
 
-  const handleSelect = (item: string) => {
-    setSelectedItem(item);
+  const isMobile = useMediaQuery("(max-width:768px)");
+
+  const handleDrawerToggle = () => {
+    setDrawerOpen(!drawerOpen);
   };
 
-  const handleSave = () => {
-    const settings = {
-      unitSystem,
-      defaultWeight,
-      timeZone,
-      prefix,
-      suffix,
-      orderProcessing,
-      autoArchive,
-    };
-  };
+  const menuItems = [
+    { icon: <PersonIcon />, text: "Users" },
+    { icon: <SettingsIcon />, text: "General" },
+    { icon: <PaymentIcon />, text: "Payments" },
+    { icon: <ShoppingCartIcon />, text: "Checkout" },
+    { icon: <LocationOnIcon />, text: "Locations" },
+    { icon: <NotificationsIcon />, text: "Notifications" },
+    { icon: <PrivacyTipIcon />, text: "Customer Privacy" },
+  ];
 
   return (
     <Box
@@ -90,84 +93,67 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
         height: "100vh",
       }}
     >
-      {/* Sidebar */}
-      <Box
-        sx={{
-          width: "250px",
-          backgroundColor: "#f5f5f5",
-          p: 2,
-          borderRight: "1px solid #ddd",
-        }}
-      >
-        <Typography variant="h6" fontWeight="bold" gutterBottom>
-          Vendor 1
-        </Typography>
-        <List>
-        <ListItem
+      {/* Sidebar for Mobile */}
+      {isMobile ? (
+        <>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerToggle}
+            sx={{ position: "absolute", top: 10, left: 10 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerToggle}>
+            <Box
+              sx={{
+                width: "250px",
+                backgroundColor: "#f5f5f5",
+                p: 2,
+                borderRight: "1px solid #ddd",
+              }}
+            >
+              <Typography variant="h6" fontWeight="bold" gutterBottom>
+                Vendor 1
+              </Typography>
+              <List>
+                {menuItems.map((item, index) => (
+                  <ListItem key={index}>
+                    <Button sx={{ textAlign: "left", width: "100%" }}>
+                      <ListItemIcon>{item.icon}</ListItemIcon>
+                      <ListItemText primary={item.text} sx={{ color: "black" }} />
+                    </Button>
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
+          </Drawer>
+        </>
+      ) : (
+        // Sidebar for Desktop
+        <Box
+          sx={{
+            width: "250px",
+            backgroundColor: "#f5f5f5",
+            p: 2,
+            borderRight: "1px solid #ddd",
+          }}
         >
-          <Button sx={{ textAlign: 'left', width: '100%' }}>
-            <ListItemIcon>
-              <PersonIcon />
-            </ListItemIcon>
-            <ListItemText primary="Users" sx={{color: "black"}} />
-          </Button>
-        </ListItem>
-        <ListItem
-        >
-          <Button sx={{ textAlign: 'left', width: '100%' }}>
-            <ListItemIcon>
-              <SettingsIcon />
-            </ListItemIcon>
-            <ListItemText primary="General" sx={{color: "black"}} />
-          </Button>
-        </ListItem>
-        <ListItem
-        >
-          <Button sx={{ textAlign: 'left', width: '100%' }}>
-            <ListItemIcon>
-              <PaymentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Payments" sx={{color: "black"}} />
-          </Button>
-        </ListItem>
-        <ListItem
-        >
-          <Button sx={{ textAlign: 'left', width: '100%' }}>
-            <ListItemIcon>
-              <ShoppingCartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Checkout" sx={{color: "black"}} />
-          </Button>
-        </ListItem>
-        <ListItem
-        >
-          <Button sx={{ textAlign: 'left', width: '100%' }}>
-            <ListItemIcon>
-              <LocationOnIcon />
-            </ListItemIcon>
-            <ListItemText primary="Locations" sx={{color: "black"}} />
-          </Button>
-        </ListItem>
-        <ListItem
-        >
-          <Button sx={{ textAlign: 'left', width: '100%' }}>
-            <ListItemIcon>
-              <NotificationsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Notifications" sx={{color: "black"}} />
-          </Button>
-        </ListItem>
-        <ListItem
-        >
-          <Button sx={{ textAlign: 'left', width: '100%' }}>
-            <ListItemIcon>
-              <PrivacyTipIcon />
-            </ListItemIcon>
-            <ListItemText primary="Customer Privacy" sx={{color: "black"}} />
-          </Button>
-        </ListItem>
-      </List>
-      </Box>
+          <Typography variant="h6" fontWeight="bold" gutterBottom>
+            Vendor 1
+          </Typography>
+          <List>
+            {menuItems.map((item, index) => (
+              <ListItem key={index}>
+                <Button sx={{ textAlign: "left", width: "100%" }}>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.text} sx={{ color: "black" }} />
+                </Button>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      )}
 
       {/* Main Content */}
       <Box
@@ -310,11 +296,10 @@ const GeneralSettings: React.FC<GeneralSettingsProps> = ({
           </Link>
         </Box>
 
-
         <Divider sx={{ my: 3 }} />
 
         <Box textAlign="center">
-          <Button variant="contained" color="primary" onClick={handleSave}>
+          <Button variant="contained" color="primary">
             Save Changes
           </Button>
         </Box>
