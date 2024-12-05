@@ -425,7 +425,7 @@ export function ProductView() {
                     "FREE Scent Card",
                     "Delivery",
                   ].map((section) => (
-                    <Accordion key={section} variant="standard">
+                    <Accordion key={section}>
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls={`${section}-content`}
