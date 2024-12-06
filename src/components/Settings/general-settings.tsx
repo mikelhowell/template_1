@@ -259,7 +259,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ storeDetails, initialValues
   };
 
   return (
-    <Box sx={{ display: "flex", height: "100vh" }}>
+    <Box sx={{ display: "flex" }}>
       {/* Sidebar */}
       {isMobile ? (
         <>
