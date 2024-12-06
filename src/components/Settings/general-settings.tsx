@@ -267,7 +267,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ storeDetails, initialValues
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerToggle}
-            sx={{ position: "absolute", top: 10, left: 10 }}
+            sx={{ position: "fixed", top: 10, left: 10 }}
           >
             <MenuIcon />
           </IconButton>

@@ -198,7 +198,7 @@ export function Footer() {
           justifyContent="center"
           gap={2}
           mt={1}
-          sx={{ position: "absolute", right: 60 }}
+          sx={{ position: "absolute", right: 60, marginTop: 6}}
         >
           <Typography
             variant="body2"
