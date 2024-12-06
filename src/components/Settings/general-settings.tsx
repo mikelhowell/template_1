@@ -38,9 +38,18 @@ interface SettingsPageProps {
     email: string;
     address: string;
   };
+  initialValues: {
+    unitSystem: string;
+    defaultWeight: string;
+    timeZone: string;
+    prefix: string;
+    suffix: string;
+    orderProcessing: string;
+    autoArchive: boolean;
+  };
 }
 
-const SettingsPage: React.FC<SettingsPageProps> = ({ storeDetails }) => {
+const SettingsPage: React.FC<SettingsPageProps> = ({ storeDetails, initialValues  }) => {
   const [selectedMenu, setSelectedMenu] = useState<string>("general");
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const isMobile = useMediaQuery("(max-width:768px)");
@@ -109,8 +118,14 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ storeDetails }) => {
               <MenuItem value="GBP">GBP</MenuItem>
             </Select>
             <Divider sx={{ my: 3 }} />
+            <Typography variant="subtitle1">Default Unit System</Typography>
+            <Select fullWidth sx={{ mt: 2 }} defaultValue={initialValues.unitSystem}>
+              <MenuItem value="imperial">Imperial</MenuItem>
+              <MenuItem value="metric">Metric</MenuItem>
+            </Select>
+            <Divider sx={{ my: 3 }} />
             <Typography variant="subtitle1">Time Zone</Typography>
-            <Select fullWidth sx={{ mt: 2 }} defaultValue="GMT+00:00">
+            <Select fullWidth sx={{ mt: 2 }} defaultValue={initialValues.timeZone}>
               <MenuItem value="GMT+00:00">GMT+00:00 London</MenuItem>
               <MenuItem value="GMT+10:00">GMT+10:00 Sydney</MenuItem>
             </Select>
