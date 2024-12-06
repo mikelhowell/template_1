@@ -188,7 +188,7 @@ export function Footer() {
         mt={8}
         color="textSecondary"
         position={"relative"}
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexFlow: "column" }}
       >
         <Typography variant="body2">
           ©2024 BTAB CORP DESIGN HOLDINGS LTD
@@ -198,7 +198,7 @@ export function Footer() {
           justifyContent="center"
           gap={2}
           mt={1}
-          sx={{ position: "absolute", right: 60, marginTop: 6}}
+          sx={{ }}
         >
           <Typography
             variant="body2"
