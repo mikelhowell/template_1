@@ -153,11 +153,13 @@ export function Header() {
       >
         {/* Left Section: Country and Currency Dropdown */}
         <Box
-          display="flex"
-          alignItems="center"
-          justifyContent={"space-between"}
-          gap={2}
-          width={280}
+          sx={{
+            display: { xs: "none", sm: "flex" }, // Hidden on extra-small screens, visible on small and up
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 2,
+            width: 280,
+          }}
         >
           {/* Currency Dropdown */}
           <Box
