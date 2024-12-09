@@ -358,14 +358,14 @@ export function MainLayout1({ sx, children }: MainLayout1Props) {
           </Grid>
         </Grid>
       </Box>
-      <Box sx={{ backgroundColor: "white", pb: 1 }}>
+      {/* <Box sx={{ backgroundColor: "white", pb: 1 }}>
         <CardMedia
           component={"img"}
           image="/images/paybar.png"
           alt="paybar"
           sx={{ height: "60px", objectFit: "contain" }}
         />
-      </Box>
+      </Box> */}
     </Box>
   );
 }
