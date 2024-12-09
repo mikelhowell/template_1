@@ -31,6 +31,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import PrivacyTipIcon from "@mui/icons-material/PrivacyTip";
+import DescriptionIcon from "@mui/icons-material/Description";
 
 interface SettingsPageProps {
   storeDetails: {
@@ -66,6 +67,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ storeDetails, initialValues
     { icon: <LocationOnIcon />, text: "Locations", key: "locations" },
     { icon: <NotificationsIcon />, text: "Notifications", key: "notifications" },
     { icon: <PrivacyTipIcon />, text: "Customer Privacy", key: "privacy" },
+    { icon: <DescriptionIcon />, text: "Template", key: "template" },
   ];
 
   const renderContent = () => {
@@ -197,6 +199,34 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ storeDetails, initialValues
             </Box>
           </>
         );
+      case "template":
+        return (
+          <>
+            <Typography variant="h5" fontWeight="bold">
+              Template Switcher
+            </Typography>
+            <Box sx={{ mt: 3 }}>
+              <Typography variant="subtitle1">Select Template</Typography>
+              <Select fullWidth sx={{ mt: 2 }} defaultValue="default">
+                <MenuItem value="default">Template 1</MenuItem>
+                <MenuItem value="dark">Template 2</MenuItem>
+                <MenuItem value="light">Template 3</MenuItem>
+                <MenuItem value="custom">Template 4</MenuItem>
+                <MenuItem value="custom">Template 5</MenuItem>
+              </Select>
+              <Divider sx={{ my: 3 }} />
+              <Typography variant="subtitle1">Customize Theme</Typography>
+              <Typography variant="body2" sx={{ mt: 1 }}>
+                Use the options below to fine-tune your selected theme:
+              </Typography>
+              <Select fullWidth sx={{ mt: 2 }} defaultValue="color-scheme">
+                <MenuItem value="color-scheme">Change Color Scheme</MenuItem>
+                <MenuItem value="font">Update Font Style</MenuItem>
+                <MenuItem value="layout">Adjust LayoutB</MenuItem>
+              </Select>
+            </Box>
+          </>
+        );
       case "locations":
         return (
           <>
@@ -225,7 +255,7 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ storeDetails, initialValues
               <Typography variant="body2" sx={{ display: "inline" }}>
                 Enable order confirmations
               </Typography>
-              <Checkbox sx={{ mt: 2 }} />
+              <Checkbox />
               <Typography variant="body2" sx={{ display: "inline" }}>
                 Enable shipping updates
               </Typography>
