@@ -20,12 +20,12 @@ import { Footer } from "./footer";
 
 // ----------------------------------------------------------------------
 
-export type MainLayoutProps = {
+export type MainLayout3Props = {
   sx?: SxProps<Theme>;
   children: React.ReactNode;
 };
 
-export function MainLayout({ sx, children }: MainLayoutProps) {
+export function MainLayout3({ sx, children }: MainLayout3Props) {
   const theme = useTheme();
 
   const SearchInput = styled(InputBase)(({ theme }) => ({

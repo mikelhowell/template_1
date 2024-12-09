@@ -30,12 +30,12 @@ import { Iconify } from "src/components/iconify";
 
 // ----------------------------------------------------------------------
 
-export type MainLayoutProps = {
+export type MainLayout1Props = {
   sx?: SxProps<Theme>;
   children: React.ReactNode;
 };
 
-export function MainLayout({ sx, children }: MainLayoutProps) {
+export function MainLayout1({ sx, children }: MainLayout1Props) {
   const theme = useTheme();
 
   return (
@@ -51,7 +51,9 @@ export function MainLayout({ sx, children }: MainLayoutProps) {
       >
         <Container
           maxWidth="lg"
-          sx={{ display: "flex", justifyContent: "space-between" }}
+          sx={{ display: "flex", flexFlow: "column", justifyContent: "space-between", "@media (min-width:768px)": {
+                flexFlow: "row"
+              }, }}
         >
           <Typography
             variant="body2"
@@ -113,7 +115,9 @@ export function MainLayout({ sx, children }: MainLayoutProps) {
             </Typography> */}
             <Box
               component="ul"
-              sx={{ display: "flex", listStyle: "none", gap: 3, p: 0, m: 0 }}
+              sx={{ display: "none", listStyle: "none", gap: 3, p: 0, m: 0, "@media (min-width:768px)": {
+                display: "flex"
+              }, }}
             >
               {/* Home Link */}
               <Box component="li">

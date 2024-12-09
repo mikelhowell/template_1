@@ -10,16 +10,21 @@ import CurrencyDropdown from "src/components/CurrencyDropdown/currency-dropdown"
 const FooterContainer = styled(Box)(({ theme }) => ({
   backgroundColor: "#8B1D3B", // Dark red background color
   color: "#FFFFFF", // White text color
-  padding: "40px 80px",
+  padding: "40px 20px",
   display: "flex",
   justifyContent: "space-between",
   flexWrap: "wrap",
+  [theme.breakpoints.up("md")]: {
+    padding: "40px 80px", // Restore larger padding
+  },
 }));
 
 // Styled section for footer items
 const FooterSection = styled(Box)(({ theme }) => ({
-  maxWidth: "300px",
   marginBottom: "20px",
+  [theme.breakpoints.up("md")]: {
+    maxWidth: "300px",
+  },
 }));
 
 // Footer link style
@@ -99,7 +104,13 @@ export function Footer() {
           marginTop: "20px",
           paddingTop: "10px",
           display: "flex",
-          justifyContent: "space-between",
+          flexDirection: "column", // Default for mobile
+          justifyContent: "center",
+          "@media (min-width:768px)": {
+            flexDirection: "row", // Switch to row for larger screens
+            justifyContent: "space-between", // Space items out for larger screens
+            alignItems: "flex-start", // Align items at the start
+          },
         }}
       >
         <Box

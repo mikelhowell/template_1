@@ -35,12 +35,12 @@ import { ScrollToTopButton } from "src/components/ScrollToTopButton";
 
 // ----------------------------------------------------------------------
 
-export type MainLayoutProps = {
+export type MainLayout2Props = {
   sx?: SxProps<Theme>;
   children: React.ReactNode;
 };
 
-export function MainLayout({ sx, children }: MainLayoutProps) {
+export function MainLayout2({ sx, children }: MainLayout2Props) {
   const theme = useTheme();
 
   const SearchInput = styled(InputBase)(({ theme }) => ({

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -22,6 +22,7 @@ import {
   Drawer,
   IconButton,
   useMediaQuery,
+  SelectChangeEvent
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
@@ -54,6 +55,17 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ storeDetails, initialValues
   const [selectedMenu, setSelectedMenu] = useState<string>("general");
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const isMobile = useMediaQuery("(max-width:768px)");
+  const [template, setTemplate] = useState<string>("default");
+
+  useEffect(()=> {
+    setTemplate(localStorage.getItem("Template") || "main")
+  },[template])
+
+  const handleChange = (event: SelectChangeEvent<string>) => {
+    const selectedValue = event.target.value;
+    setTemplate(selectedValue);
+    localStorage.setItem("Template", selectedValue); // Update localStorage
+  };
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -138,6 +150,29 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ storeDetails, initialValues
               <MenuItem value="fr">French</MenuItem>
               <MenuItem value="es">Spanish</MenuItem>
             </Select>
+            <Typography variant="h5" fontWeight="bold">
+              Template Switcher
+            </Typography>
+            <Box sx={{ mt: 3 }}>
+              <Typography variant="subtitle1">Select Template</Typography>
+              <Select fullWidth sx={{ mt: 2 }} defaultValue="default" value={template} onChange={handleChange}>
+                <MenuItem value="main">Template 1</MenuItem>
+                <MenuItem value="template_1">Template 2</MenuItem>
+                <MenuItem value="template_2">Template 3</MenuItem>
+                <MenuItem value="template_3">Template 4</MenuItem>
+                <MenuItem value="template_4">Template 5</MenuItem>
+              </Select>
+              <Divider sx={{ my: 3 }} />
+              <Typography variant="subtitle1">Customize Theme</Typography>
+              <Typography variant="body2" sx={{ mt: 1 }}>
+                Use the options below to fine-tune your selected theme:
+              </Typography>
+              <Select fullWidth sx={{ mt: 2 }} defaultValue="color-scheme">
+                <MenuItem value="color-scheme">Change Color Scheme</MenuItem>
+                <MenuItem value="font">Update Font Style</MenuItem>
+                <MenuItem value="layout">Adjust LayoutB</MenuItem>
+              </Select>
+            </Box>
           </>
         );
       case "payments":
@@ -196,34 +231,6 @@ const SettingsPage: React.FC<SettingsPageProps> = ({ storeDetails, initialValues
                 placeholder="Thank you for shopping with us!"
                 sx={{ mt: 2 }}
               />
-            </Box>
-          </>
-        );
-      case "template":
-        return (
-          <>
-            <Typography variant="h5" fontWeight="bold">
-              Template Switcher
-            </Typography>
-            <Box sx={{ mt: 3 }}>
-              <Typography variant="subtitle1">Select Template</Typography>
-              <Select fullWidth sx={{ mt: 2 }} defaultValue="default">
-                <MenuItem value="default">Template 1</MenuItem>
-                <MenuItem value="dark">Template 2</MenuItem>
-                <MenuItem value="light">Template 3</MenuItem>
-                <MenuItem value="custom">Template 4</MenuItem>
-                <MenuItem value="custom">Template 5</MenuItem>
-              </Select>
-              <Divider sx={{ my: 3 }} />
-              <Typography variant="subtitle1">Customize Theme</Typography>
-              <Typography variant="body2" sx={{ mt: 1 }}>
-                Use the options below to fine-tune your selected theme:
-              </Typography>
-              <Select fullWidth sx={{ mt: 2 }} defaultValue="color-scheme">
-                <MenuItem value="color-scheme">Change Color Scheme</MenuItem>
-                <MenuItem value="font">Update Font Style</MenuItem>
-                <MenuItem value="layout">Adjust LayoutB</MenuItem>
-              </Select>
             </Box>
           </>
         );

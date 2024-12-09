@@ -1,4 +1,4 @@
-import { MainLayout } from 'src/layouts/main';
+import { MainLayout2 } from 'src/layouts/template_3/main';
 
 // ----------------------------------------------------------------------
 
@@ -7,5 +7,5 @@ type Props = {
 };
 
 export default function Layout({ children }: Props) {
-  return <MainLayout>{children}</MainLayout>;
+  return <MainLayout2>{children}</MainLayout2>;
 }

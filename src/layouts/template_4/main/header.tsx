@@ -26,15 +26,18 @@ const TopBarContainer = styled(Box)(({ theme }) => ({
   backgroundColor: "#8B1D3B", // Burgundy background color
   color: "#FFFFFF", // White text color
   padding: "8px 0",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
   fontSize: "12px",
   fontWeight: "bold",
   fontFamily: "Arial, sans-serif",
   textTransform: "uppercase",
   "& > *:not(:last-child)": {
     marginRight: "24px", // Space between items
+  },
+  display: "-webkit-box",
+  [theme.breakpoints.up("md")]: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
 }));
 
@@ -85,12 +88,18 @@ export function Header() {
       {/* Main Navigation Bar */}
       <Toolbar
         sx={{
-          justifyContent: "space-between",
-          alignItems: 'flex-start',
+          justifyContent: "flex-start",
+          alignItems: 'center',
+          flexFlow: 'column',
           borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
           padding: "16px 32px",
           backgroundImage: "url('/images/design3.webp')",
-          height: '400px'
+          height: '400px',
+          "@media (min-width:768px)": {
+            justifyContent: "space-between",
+            alignItems: 'flex-start',
+            flexFlow: 'row',
+          },
         }}
       >
         {/* Middle Section: Logo */}
